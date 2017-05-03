@@ -29,3 +29,7 @@ RUN WEBPACK
 In watch mode: npm run watch-development
 In build mode: npm run build-development
 Build production: npm run build-production
+
+UPDATING THIS KIT
+This kit is updated using NPM Check Updates. Use with caution, as updating too much stuff at once tends to break things.
+https://www.npmjs.com/package/npm-check-updates
