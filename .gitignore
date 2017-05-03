@@ -5,3 +5,4 @@ dev/js/*
 dev/css/*
 dev/index.html
 
+npm-debug.log
