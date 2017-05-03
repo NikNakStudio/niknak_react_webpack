@@ -14,9 +14,13 @@ It creates source maps.
 Includes .htaccess file on both /dev and /prod folder to map all requests to index.html.
 Creates and adds META code for many different versions of favicon using a favicon PNG image in /src/img as reference.
 
+REQUIRES
+Node.js should be installed in your system.
+
 ENVIRONMENTS
 By default, this kit compiles to /dev folder as debugger friendly code.
-There's also an option to compile for production ready.
+
+There's also an option to compile for production ready in /prod folder.
 
 INSTALL
 npm install
