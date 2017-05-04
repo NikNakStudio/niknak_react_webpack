@@ -3,6 +3,7 @@ var siteTitle = 'Nik Nak Studio\'s React Starter Kit';
 var faviconPath = './src/img/favicon.png';
 
 // In webpack.config.js
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
@@ -15,11 +16,9 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body',
   title: siteTitle,
 });
-var ExtractTextPluginConfig = new ExtractTextPlugin('/css/style.css', {
-  allChunks: true,
-});
+var ExtractTextPlugin = new ExtractTextPlugin('./css/style.css');
 
-var webpackCommonPlugins = [HTMLWebpackPluginConfig, ExtractTextPluginConfig];
+var webpackCommonPlugins = [HTMLWebpackPluginConfig, ExtractTextPlugin];
 
 if (fs.existsSync(faviconPath)) {
   console.log('favicon.png does exist');
@@ -81,18 +80,29 @@ module.exports = {
     './src/js/index.js'
   ],
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader", query: BabelLoaderQuery },
-      { test: /\.scss$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('css!sass', { publicPath: '../' }) },
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: BabelLoaderQuery
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          loader: 'css-loader!sass-loader',
+          fallback: 'style-loader'
+        })
+      },
       { test: /\.(png|jpg|svg)$/, exclude: /node_modules/, loader: 'svg-url-loader?limit=10000&name=images/[name].[ext]' },
       { test: /\.(woff|woff2|ttf|eot)$/, exclude: /node_modules/, loader: 'url-loader?limit=100000' },
     ]
   },
   output: {
-    filename: "/js/index_bundle.js",
+    filename: "./js/index_bundle.js",
     path: __dirname + config.outputDir,
   },
   devtool: config.devTool,
-  debug: config.debug,
   plugins: allPlugins,
 }

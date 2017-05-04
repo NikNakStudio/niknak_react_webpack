@@ -32,4 +32,8 @@ Build production: npm run build-production
 
 UPDATING THIS KIT
 This kit is updated using NPM Check Updates. Use with caution, as updating too much stuff at once tends to break things.
+
+ncu -> show dependencies
+ncu -u -> update and update package.json
+
 https://www.npmjs.com/package/npm-check-updates
