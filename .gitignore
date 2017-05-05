@@ -1,8 +1,4 @@
 node_modules
 node_modules/*
 
-dev/js/*
-dev/css/*
-dev/index.html
-
 npm-debug.log
