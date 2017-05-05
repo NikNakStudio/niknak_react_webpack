@@ -20,6 +20,7 @@ var ExtractTextPlugin = new ExtractTextPlugin('./css/style.css');
 
 var webpackCommonPlugins = [HTMLWebpackPluginConfig, ExtractTextPlugin];
 
+// Favicon process, but only if file exists.
 if (fs.existsSync(faviconPath)) {
   console.log('favicon.png does exist');
   var FaviconsWebpackPlugin = new FaviconsWebpackPlugin({
