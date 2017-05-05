@@ -95,8 +95,16 @@ module.exports = {
           fallback: 'style-loader'
         })
       },
-      { test: /\.(png|jpg|svg)$/, exclude: /node_modules/, loader: 'svg-url-loader?limit=10000&name=images/[name].[ext]' },
-      { test: /\.(woff|woff2|ttf|eot)$/, exclude: /node_modules/, loader: 'url-loader?limit=100000' },
+      {
+        test: /\.(png|jpg|svg)$/,
+        exclude: /node_modules/,
+        loader: 'svg-url-loader?limit=10000&name=images/[name].[ext]'
+      },
+      {
+        test: /\.(woff|woff2|ttf|eot)$/,
+        exclude: /node_modules/,
+        loader: 'url-loader?limit=100000'
+      },
     ]
   },
   output: {
