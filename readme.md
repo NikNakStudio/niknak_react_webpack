@@ -33,9 +33,9 @@ RUN WEBPACK
 
 In watch mode: npm run watch-development
 
-In build mode: npm run build-development
+Building for development (/dev folder): npm run build-development
 
-Build production: npm run build-production
+Build for production (/prod folder): npm run build-production
 
 UPDATING THIS KIT
 This kit is updated using NPM Check Updates. Use with caution, as updating too much stuff at once tends to break things.
